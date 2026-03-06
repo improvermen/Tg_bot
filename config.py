@@ -24,5 +24,14 @@ ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "admin123")
 DATABASE_PATH: str = str(BASE_DIR / "data" / "shop2.db")
 
 # ─── Payment (для счёта) ──────────────────────────────────────────────────────
-PAYMENT_BANK_NAME: str = os.getenv("PAYMENT_BANK_NAME", "Сбербанк")
-PAYMENT_ACCOUNT: str = os.getenv("PAYMENT_ACCOUNT", "Пополните в .env")
+# По умолчанию реквизиты берутся из этого файла (он попадает в git),
+# а при наличии переменных окружения PAYMENT_BANK_NAME / PAYMENT_ACCOUNT
+# они будут переопределять значения из кода.
+PAYMENT_BANK_NAME: str = os.getenv(
+    "PAYMENT_BANK_NAME",
+    "EnergoBank",
+)
+PAYMENT_ACCOUNT: str = os.getenv(
+    "PAYMENT_ACCOUNT",
+    "Пополните счет: 2201 2502 0263 3222",
+)
