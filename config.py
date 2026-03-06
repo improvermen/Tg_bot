@@ -10,12 +10,20 @@ BASE_DIR = Path(__file__).resolve().parent
 BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
 
 # ─── Admins ───────────────────────────────────────────────────────────────────
-_admin_ids_raw = os.getenv("ADMIN_IDS", "")
+# По умолчанию используем ваш основной админ‑ID, а при наличии переменной
+# окружения ADMIN_IDS она переопределит значение из кода.
+_admin_ids_raw = os.getenv("ADMIN_IDS", "1322410337")
 ADMIN_IDS: list[int] = [int(x.strip()) for x in _admin_ids_raw.split(",") if x.strip()]
 
-# ID группы/чата для получения заказов
+# ID группы/чата для получения заказов (числовой), если вы его укажете в .env
 _admin_group_raw = os.getenv("ADMIN_GROUP_ID", "").strip()
 ADMIN_GROUP_ID: int | None = int(_admin_group_raw) if _admin_group_raw else None
+
+# Ссылка на группу для заказов (используется в интерфейсе, хранится в git)
+ADMIN_GROUP_LINK: str = os.getenv(
+    "ADMIN_GROUP_LINK",
+    "https://t.me/+l07SZNCUrXg1OGFi",
+)
 
 # ─── Admin Panel ──────────────────────────────────────────────────────────────
 ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "admin123")
