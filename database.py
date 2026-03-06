@@ -170,7 +170,7 @@ class Database:
 
         await self.conn.execute(
             "INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?), (?, ?), (?, ?)",
-            ("payment_bank", "Сбербанк", "payment_account", "Пополните в админ-панели", "manager_link", ""),
+            ("payment_bank", "Энергобанк", "payment_account", "Пополните на номер карты 4583 8548 1994 1239", "manager_link", ""),
         )
         await self.conn.commit()
         logger.info("Каталог товаров заполнен")
